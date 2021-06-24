@@ -1,14 +1,18 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
 
 const app = express();
 
 const { mongoose } = require('./database');
 //Settings
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4000);
+app.set('views', path.join(__dirname, 'views')); //indica al servidor donde esta la carpeta vistas
+app.set('view engine', 'ejs');
 
 //Middlewares
-app.use(morgan('dev'));
+app.use(morgan('dev')); //funcion que se ejecuta antes de llegar a las rutas. A partir de aqui se pueden procesaar los datos antes de llegara la ruta
+app.use(express.urlencoded({extended:false}));
 app.use(express.json());//Permite entender los codigos del navegador en formato json
 
 //Importamos las Rutas

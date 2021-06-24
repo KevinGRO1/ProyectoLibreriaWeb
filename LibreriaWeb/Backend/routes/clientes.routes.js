@@ -3,9 +3,10 @@ const router = express.Router();
 const cliente = require('../controllers/cliente.controller');
 
 router.get('/', cliente.getClientes);
-router.post('/', cliente.createCliente);
+router.post('/insert/', cliente.createCliente);
 router.get('/:id', cliente.getCliente);
-router.put('/:id', cliente.editCliente);
-router.delete('/:id', cliente.deleteCliente);
+router.get('/editar/:id', cliente.editarCliente);
+router.post('/edit/:id', cliente.editCliente);
+router.get('/delete/:id', cliente.deleteCliente);
 
-module.exports = router;
+module.exports = router; //enrutador

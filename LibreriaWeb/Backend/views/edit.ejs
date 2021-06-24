@@ -1,0 +1,40 @@
+<%- include ('partes/header'); -%>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-5 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/api/clientes/edit/<%= clientes._id %>" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="DNI" placeholder="Inserte DNI" class="form-control"  value="<%=clientes.DNI%>" >
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Inserte Nombre" class="form-control" value="<%=clientes.nombre%>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido" placeholder="Inserte Apellido" class="form-control"  value="<%=clientes.apellido%>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="email" placeholder="Inserte Email" class="form-control"  value="<%=clientes.email%>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" placeholder="Inserte Direccion" class="form-control"  value="<%=clientes.direccion%>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="telefono" placeholder="Inserte Telefono" class="form-control"  value="<%=clientes.telefono%>">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Actualizar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<%- include ('partes/footer'); -%>
