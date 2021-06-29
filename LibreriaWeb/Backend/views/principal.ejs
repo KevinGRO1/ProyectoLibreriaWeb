@@ -1,78 +1,31 @@
 <%- include ('partes/header'); -%>
 
-  
-    <div class="container">
-        <div class="row">
-            <!--FORMULARIO-->
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="/api/clientes/insert/" method="POST">
-                            <div class="form-group">
-                                <input type="text" name="DNI" placeholder="Inserte DNI" class="form-control" >
-                            </div>
-                            <div class="ml-10px"></div>
-                            <div class="form-group">
-                                <input type="text" name="nombre" placeholder="Inserte Nombre" class="form-control" >
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="apellido" placeholder="Inserte Apellido" class="form-control" >
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="email" placeholder="Inserte Email" class="form-control" >
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="direccion" placeholder="Inserte Direccion" class="form-control" >
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="telefono" placeholder="Inserte Telefono" class="form-control" >
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary btn-block">
-                                Agregar
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!--LISTA-->
-            <div class="col-md-9">
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>N°</th>
-                            <th>DNI</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Direccion</th>
-                            <th>Telefono</th>
-                            <th>Operación</th>
-                        </tr>
-                    </thead>
-                    <body>
-                        <% for(var i =0; i< clientes.length; i++){ %>
-                            <tr>
-                                <td><%= i + 1 %> </td>
-                                <td><%= clientes[i].DNI %></td>
-                                <td><%= clientes[i].nombre %></td>
-                                <td><%= clientes[i].apellido %></td>
-                                <td><%= clientes[i].email %></td>
-                                <td><%= clientes[i].direccion %></td>
-                                <td><%= clientes[i].telefono %></td>
-                                <td>                                
-                                    <a href="/api/clientes/delete/<%= clientes[i]._id %>" class="btn btn-danger">Eliminar</a>
-                                    <a href="/api/clientes/editar/<%= clientes[i]._id %>" class="btn btn-info">Editar</a>
-                                </td>
 
-                            </tr>
-                        <% } %>
-                    </body>
-                </table>
-            </div>
+
+
+
+<div class="container" style="padding-top: 230px; padding-left: 50px;">
+    <div class="row">
+        <div class="col-lg-12text-center">
+            <img src="/img/portada2.png" alt="Libreria Web">
         </div>
     </div>
 
+</div>
+ 
+<div class="container" style="padding-top: 100px;">
+    <footer class="bg-light text-center p-2">
+        <p class="h4">Bebecitas 2021 &copy;</p>
+      </footer>
+</div>
+
+
+
+
+
+
+
+
+
 
 <%- include ('partes/footer'); -%>
-

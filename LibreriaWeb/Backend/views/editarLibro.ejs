@@ -1,0 +1,43 @@
+<%- include ('partes/header'); -%>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/libros/edit/<%= libros._id %>" method="POST">
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="editorial" placeholder="Inserte Editorial" class="form-control"  value="<%=libros.editorial%>" >
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="titulo" placeholder="Inserte Titulo" class="form-control" value="<%=libros.titulo%>">
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="autor" placeholder="Inserte Autor" class="form-control"  value="<%=libros.autor%>">
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="pais" placeholder="Inserte Pais" class="form-control"  value="<%=libros.pais%>">
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="precio" placeholder="Inserte Precio" class="form-control"  value="<%=libros.precio%>">
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="descripción" placeholder="Inserte Descripcion" class="form-control"  value="<%=libros.descripción%>">
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="isbn" placeholder="Inserte ISBN" class="form-control"  value="<%=libros.isbn%>">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px">
+                            Actualizar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<%- include ('partes/footer'); -%>

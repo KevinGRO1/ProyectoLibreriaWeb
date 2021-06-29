@@ -2,6 +2,7 @@ const mongoose  = require("mongoose");
 const { Schema } = mongoose;
 
 const clienteSchema = new Schema({
+
     DNI: {
         type: String,
         required: [true, 'El DNI es necesario']

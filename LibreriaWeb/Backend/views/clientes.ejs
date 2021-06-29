@@ -1,0 +1,79 @@
+<%- include ('partes/header'); -%>
+
+
+<div class="container" style="padding-top: 20px;">
+
+        <div class="col" style="padding-inline: 0.1px;">
+    
+            <div class="row-lg-9">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/clientes/insert/" method="POST">
+                            <div class="form-group" style="margin-top:10px" >
+                                <input type="text" name="DNI" placeholder="Inserte DNI" class="form-control" >
+                            </div>
+                          
+                            <div class="form-group " style="margin-top:10px">
+                                <input type="text" name="nombre" placeholder="Inserte Nombre" class="form-control" >
+                            </div>
+                            <div class="form-group" style="margin-top:10px">
+                                <input type="text" name="apellido" placeholder="Inserte Apellido" class="form-control" >
+                            </div>
+                            <div class="form-group" style="margin-top:10px">
+                                <input type="text" name="email" placeholder="Inserte Email" class="form-control" >
+                            </div>
+                            <div class="form-group" style="margin-top:10px">
+                                <input type="text" name="direccion" placeholder="Inserte Direccion" class="form-control" >
+                            </div>
+                            <div class="form-group" style="margin-top:10px">
+                                <input type="text" name="telefono" placeholder="Inserte Telefono" class="form-control" >
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px">
+                                Agregar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row-lg-9">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Direccion</th>
+                            <th>Telefono</th>
+                            <th>Operación</th>
+                        </tr>
+                    </thead>
+                    <body>
+                        <% for(var i =0; i< clientes.length; i++){ %>
+                            <tr>
+                                <td><%= i + 1 %> </td>
+                                <td><%= clientes[i].DNI %></td>
+                                <td><%= clientes[i].nombre %></td>
+                                <td><%= clientes[i].apellido %></td>
+                                <td><%= clientes[i].email %></td>
+                                <td><%= clientes[i].direccion %></td>
+                                <td><%= clientes[i].telefono %></td>
+                                <td>                                
+                                    <a href="/clientes/delete/<%= clientes[i]._id %>" class="btn btn-danger">Eliminar</a>
+                                    <a href="/clientes/editar/<%= clientes[i]._id %>" class="btn btn-info">Editar</a>
+                                </td>
+
+                            </tr>
+                        <% } %>
+                    </body>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+<%- include ('partes/footer'); -%>
+

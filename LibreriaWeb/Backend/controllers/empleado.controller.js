@@ -5,6 +5,55 @@ const empleadoController = {};
 //Función para listar todos los empleados
 empleadoController.getEmpleados = async(req, res)=>{
     const empleados = await Empleados.find();
+    res.render('empleados',{
+        empleados
+    });
+        
+};
+
+//Función para registra un nuevo empleado
+empleadoController.createEmpleados = async(req, res) =>{
+    const empleado = new Empleados(req.body);
+    await empleado.save();
+    res.redirect('/empleados');
+};
+
+empleadoController.edicionEmpleado = async (req, res) =>{
+    const { id }=req.params;
+    const empleados= await Empleados.findById(id);
+    res.render('editarEmpleado',{
+        empleados
+    });
+};
+
+//Función para editar un empleado por el ID
+empleadoController.editEmpleado = async(req, res) =>{
+    const { id } = req.params; //Soocitio el id de params
+    await Empleados.updateOne({_id: id}, req.body);
+    res.redirect('/empleados');
+
+};
+
+//Funcionn para eliminar un empleado
+empleadoController.deleteEmpleados= async (req, res) =>{
+    const { id }=req.params;
+    await Empleados.remove({_id:id});
+    res.redirect('/empleados');
+
+};
+
+//Función para listar un empleado por el ID
+empleadoController.getEmpleado = async(req, res) =>{
+    const empleado = await Empleados.findById(req.params.id);
+    res.json(empleado);
+    
+};
+
+
+/*
+//Función para listar todos los empleados
+empleadoController.getEmpleados = async(req, res)=>{
+    const empleados = await Empleados.find();
     res.json(empleados);
         
 };
@@ -49,5 +98,5 @@ empleadoController.deleteEmpleados= async (req, res) =>{
     res.json({status: 'Empleado eliminado'});
 
 }
-
+*/
 module.exports = empleadoController;

@@ -5,6 +5,52 @@ const libroController = {};
 //Funcion para listar todos los libros
 libroController.getLibros = async(req, res) => {
     const libros = await Libros.find();
+    res.render('libros',{
+        libros
+    });
+};
+
+//Función para registrar un nuevo libro
+libroController.createLibros = async(req, res) => {
+    const libro = new Libros(req.body)
+    await libro.save();
+    res.redirect('/libros');
+};
+
+libroController.edicionLibro = async (req, res) =>{
+    const { id }=req.params;
+    const libros=await Libros.findById(id);
+    res.render('editarLibro',{
+        libros
+    });
+};
+
+//Funcionn para editar un libro por el ID
+libroController.editLibro = async(req, res) => {
+    const { id } = req.params; //Solicito el id de params
+    await Libros.updateOne({_id: id}, req.body);
+    res.redirect('/libros');
+};
+
+//Funcionn para eliminar un libro
+libroController.deleteLibros = async(req, res)=>{
+    const { id }=req.params;
+    await Libros.remove({_id:id});
+    res.redirect('/libros');
+};
+
+//Función para listar un libro por el ID
+libroController.getLibro = async(req, res) =>{
+    const libro = await Libros.findById(req.params.id);
+    res.json(libro);
+};
+
+
+
+/*
+//Funcion para listar todos los libros
+libroController.getLibros = async(req, res) => {
+    const libros = await Libros.find();
     res.json(libros);
 };
 
@@ -46,5 +92,6 @@ libroController.deleteLibros = async(req, res)=>{
     await Libros.findByIdAndRemove(req.params.id);
     res.json({status: 'Libro eliminado'});
 };
+*/
 
 module.exports = libroController;

@@ -4,7 +4,7 @@ const clienteController = {};
 
 clienteController.getClientes = async(req, res) =>{
     const clientes = await Clientes.find();
-    res.render('principal',{
+    res.render('clientes',{
         clientes
     });
 };
@@ -12,19 +12,13 @@ clienteController.getClientes = async(req, res) =>{
 clienteController.createCliente = async (req, res) =>{
     const cliente = new Clientes(req.body);
     await cliente.save();
-    res.redirect('/api/clientes/');
-};
-
-clienteController.deleteCliente = async(req, res) =>{
-    const { id } = req.params;
-    await Clientes.remove({_id: id});
-    res.redirect('/api/clientes/');
+    res.redirect('/clientes');
 };
 
 clienteController.editarCliente = async(req, res) =>{
     const { id } = req.params;
     const clientes = await Clientes.findById(id);
-    res.render('edit', {
+    res.render('editarClientes', {
         clientes
     });
 };
@@ -32,8 +26,21 @@ clienteController.editarCliente = async(req, res) =>{
 clienteController.editCliente = async(req, res) =>{
     const { id } = req.params;
     await Clientes.updateOne({_id: id}, req.body);
-    res.redirect('/api/clientes/');
-}
+    res.redirect('/clientes');
+};
+
+clienteController.deleteCliente = async(req, res) =>{
+    const { id } = req.params;
+    await Clientes.remove({_id: id});
+    res.redirect('/clientes');
+};
+
+clienteController.getCliente = async(req, res) =>{
+    const clientes = await Clientes.findById(req.params.id)
+    res.json(cliente);
+};
+
+
 
 /*
 clienteController.getClientes = async(req, res) =>{
@@ -73,12 +80,13 @@ clienteController.editCliente = async(req, res) =>{
     res.json({ status: 'Cliente actualizado'});
 };
 
-*/
-
 clienteController.getCliente = async(req, res) =>{
     const cliente = await Clientes.findById(req.params.id)
     res.json(cliente);
 };
+
+
+*/
 
 
 

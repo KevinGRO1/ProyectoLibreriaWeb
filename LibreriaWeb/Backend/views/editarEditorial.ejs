@@ -1,0 +1,31 @@
+<%- include ('partes/header'); -%>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editorial/edit/<%= editoriales._id %>" method="POST">
+
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="nombre" placeholder="Inserte Nombre" class="form-control"  value="<%=editoriales.nombre%>" >
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="direccion" placeholder="Inserte Direccion" class="form-control" value="<%=editoriales.direccion%>">
+                        </div>
+                        
+                        
+                        <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px">
+                            Actualizar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<%- include ('partes/footer'); -%>
