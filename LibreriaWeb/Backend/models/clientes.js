@@ -19,9 +19,13 @@ const clienteSchema = new Schema({
         type: String,
         required: [true, 'El email es necesario']
     },
-    direccion: {
+    contraseña: {
         type: String,
-        required: [true, 'La direccion es necesaria']
+        required: [true, 'La contraseña es necesaria']
+
+    },
+    direccion: {
+        type: String        
     },
     telefono: {
         type: String,

@@ -25,6 +25,15 @@ const empleadoSchema = new Schema({
     telefono: {
         type: String,
         required: [true, 'El numero de telefono es necesario']
+    },
+    email: {
+        type: String,
+        required: [true, 'El email es necesario']
+    },
+    contraseña: {
+        type: String,
+        required: [true, 'La contraseña es necesaria']
+
     }
 });
 

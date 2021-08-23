@@ -1,0 +1,65 @@
+<header>
+    <div id="BarraSuperior">
+        <div id="BarraSuperior__Menu">
+            <ul>
+                <li><a href="#">Whats App</a></li>
+                <li><a href="#">Ayuda</a></li>            
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </div>
+        
+        <% if(usuario_logueado.length >0) { %>
+            <div id= "BarraSuperior_Cuenta_Logueada">
+                <ul>
+                    <li><a href="#"><i class="fas fa-shopping-cart"></i>  Carrito (0)</a></li>
+                    <li>
+                        <a href="#"><%= usuario_logueado[0].nombre %></a>
+                        <ul class="Submenu_Usuario_Logueado">
+                            <li><a href="#">Mi Perfil</a></li>
+                            <li><a href="#">Mis Pedidos</a></li>
+                            <li><a href="">Salir</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+        <%} else{ %>
+            <div id="BarraSuperios__Cuenta">
+                <ul>
+                    <li><a href="#"><i class="fas fa-shopping-cart"></i>  Carrito (0)</a></li>
+                    <li><a href='/Registro'>Mi Cuenta</a></li>
+                </ul>
+            </div>        
+        <% } %>
+    
+      
+    </div>
+
+    <div id="BarraLogo">
+        <a href="../../vistaPrincipal"><img src="img/libreria.png" alt="Logo"></a>
+    </div>
+    
+    <nav id="BarraMenu">
+        <ul>
+            <li><a href="/vistaPrincipal">INICIO</a></li>
+            <li>
+                <a href="#">LIBROS</a>
+                    <ul class="Submenu1">
+                        <li><a href="#">Autores</a></li>
+                        <li><a href="#">Novedades</a></li>
+                    </ul>
+            </li>
+            <li><a href="#">NOSOTROS</a></li>              
+            <li><a href="/Admin">MENU</a></li>
+            <li>
+                <a href="#">PROMOCIONES</a>
+                    <ul class="Submenu2">
+                        <li><a href="#">Quiero ser distribuidor</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Contacto con Editorial</a></li>
+                    </ul>
+            </li>
+        </ul>
+    </nav>
+
+</header>

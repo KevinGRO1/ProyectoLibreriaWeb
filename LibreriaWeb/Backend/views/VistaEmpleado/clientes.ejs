@@ -1,0 +1,133 @@
+<%- include ('partes/header'); -%>
+
+
+<div  class="container" style="padding-top: 20px; padding-inline: 0px;">
+
+     <!--   <div class="col" style="padding-inline: 0.1px;">-->
+        <div class="row-lg-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container color forma">
+                        <form action="/clientes/insert/" method="POST">                            
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label>DNI</label>
+                                        <input type="text" name="DNI" class="form-control" placeholder="Ingrese DNI">
+                                    <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                                    </div>
+                                    <div class="col">
+                                        <label>Nombre</label>
+                                        <input type="text" name="nombre" class="form-control" placeholder="Ingrese Nombre">                        
+                                    </div>
+                                    <div class="col">
+                                        <label>Apellido</label>
+                                        <input type="text" name="apellido" class="form-control" placeholder="Ingrese Apellido">                        
+                                    </div>
+                                </div>                        
+                            
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label>Email</label>
+                                        <input type="email" name="email" class="form-control" placeholder="Ingrese Email">                        
+                                    </div>
+                                    <div class="col">
+                                        <label>Contraseña</label>
+                                        <input type="text" name="contraseña" class="form-control" placeholder="Ingrese Contraseña">                        
+                                    </div>
+                                    <div class="col">
+                                        <label>Dirección</label>
+                                        <input type="text" name="direccion" class="form-control" placeholder="Ingrese Dirección">                        
+                                    </div>
+                                </div>
+                            
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label>Teléfono</label>
+                                        <input type="text" name="telefono" class="form-control" placeholder="Ingrese Teléfono">  
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="margin-inline: 480px; margin-top: 20px;">Agregar</button>
+                            </form>                                              
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <!--
+            <div class="row-lg-9">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/clientes/insert/" method="POST">
+
+                            <div class="form-group" style="margin-top:10px" >
+                                <input type="text" name="DNI" placeholder="Inserte DNI" class="form-control" >
+                            </div>
+                          
+                            <div class="form-group " style="margin-top:10px">
+                                <input type="text" name="nombre" placeholder="Inserte Nombre" class="form-control" >
+                            </div>
+                            <div class="form-group" style="margin-top:10px">
+                                <input type="text" name="apellido" placeholder="Inserte Apellido" class="form-control" >
+                            </div>
+                            <div class="form-group" style="margin-top:10px">
+                                <input type="text" name="email" placeholder="Inserte Email" class="form-control" >
+                            </div>
+                            <div class="form-group" style="margin-top:10px">
+                                <input type="text" name="direccion" placeholder="Inserte Direccion" class="form-control" >
+                            </div>
+                            <div class="form-group" style="margin-top:10px">
+                                <input type="text" name="telefono" placeholder="Inserte Telefono" class="form-control" >
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px">
+                                Agregar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        -->
+    
+            <div id="div1">                
+                <table border="1" class="table table-bordered table-hover row-lg-12" style="width: 1100px;">
+                    <thead>
+                        <tr class="encabezado">
+                            <th>N°</th>
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Direccion</th>
+                            <th>Telefono</th>
+                            <th>Operación</th>
+                        </tr>
+                    </thead>
+                    <body>
+                        <% for(var i =0; i< clientes.length; i++){ %>
+                            <tr>
+                                <td><%= i + 1 %> </td>
+                                <td><%= clientes[i].DNI %></td>
+                                <td><%= clientes[i].nombre %></td>
+                                <td><%= clientes[i].apellido %></td>
+                                <td><%= clientes[i].email %></td>
+                                <td><%= clientes[i].direccion %></td>
+                                <td><%= clientes[i].telefono %></td>
+                                <td>                                
+                                    <a href="/clientes/delete/<%= clientes[i]._id %>" class="btn btn-danger">Eliminar</a>
+                                    <a href="/clientes/editar/<%= clientes[i]._id %>" class="btn btn-info">Editar</a>
+                                </td>
+
+                            </tr>
+                        <% } %>
+                    </body>
+                </table>
+            </div>
+            
+       <!-- </div>-->
+    </div>
+
+
+<%- include ('partes/footer'); -%>
+

@@ -1,0 +1,143 @@
+<%- include ('partes/header'); -%>
+
+
+<div class="container" style="padding-top: 20px;">
+
+   <!-- <div class="col" style="padding-inline: 0.1px;">-->
+
+        <div class="row-lg-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container color forma">
+                        <form action="/libros/insert/" method="POST">                            
+                                <div class="form-row">
+
+                                    <div class="col">
+                                        <label>Editorial</label>
+                                        <input type="text" name="editorial" class="form-control" placeholder="Ingrese Editorial">  
+                                    </div>                                        
+                                    <div class="col">
+                                        <label>Título</label>
+                                        <input type="text" name="titulo" class="form-control" placeholder="Ingrese Título">
+                                    <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                                    </div>        
+                                    <div class="col">
+                                        <label>Autor</label>
+                                        <input type="text" name="autor" class="form-control" placeholder="Ingrese Autor">                       
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label>País</label>
+                                        <input type="text" name="pais" class="form-control" placeholder="Ingrese País">                                        
+                                    </div>
+                                    <div class="col">
+                                        <label>Precio</label>
+                                        <input type="text" name="precio" class="form-control" placeholder="Ingrese Precio">
+                                    </div>
+                                    <div class="col">
+                                        <label>Descripción</label>
+                                        <input type="text" name="descripción" class="form-control" placeholder="Ingrese Descripción">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label>ISBN</label>
+                                        <input type="text" name="isbn" class="form-control" placeholder="Ingrese ISBN">
+                                    </div>
+                                    <div class="col">
+                                        <label>Stock</label>
+                                        <input type="text" name="cantidad" class="form-control" placeholder="Ingrese Stock">
+                                    </div> 
+                                </div>                                    
+                                     <button type="submit" class="btn btn-primary" style="margin-inline: 480px; margin-top: 20px;">Agregar</button>
+                            </form>                                              
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--
+        <div class="row-lg-9">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/libros/insert/" method="POST">
+
+                        <div class="form-group" style="margin-top:10px" >
+                            <input type="text" name="editorial" placeholder="Inserte Editorial" class="form-control" >
+                        </div>                          
+                        <div class="form-group " style="margin-top:10px">
+                            <input type="text" name="titulo" placeholder="Inserte titulo" class="form-control" >
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="autor" placeholder="Inserte autor" class="form-control" >
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="pais" placeholder="Inserte País" class="form-control" >
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="precio" placeholder="Inserte Precio" class="form-control" >
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="descripción" placeholder="Inserte Descripción" class="form-control" >
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="isbn" placeholder="Inserte ISBN" class="form-control" >
+                        </div>
+                        <div class="form-group" style="margin-top:10px">
+                            <input type="text" name="cantidad" placeholder="Inserte Cantidad" class="form-control" >
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" style="margin-top:10px">
+                            Agregar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    -->
+        <div id="div1">                
+                <table border="1" class="table table-bordered table-hover row-lg-12" style="width: 1100px;">
+                    <thead>
+                        <tr class="encabezado">
+                            <th>N°</th>
+                            <th>Editorial</th>
+                            <th>Titulo</th>
+                            <th>Autor</th>
+                            <th>Pais</th>
+                            <th>Precio</th>
+                            <th>Descripción</th>
+                            <th>ISBN</th>                            
+                            <th>Cantidad</th>
+                            <th class="center" style="width: 200px;">Operación</th>
+                        </tr>
+                    </thead>
+                    <body>
+                        <% for(var i =0; i< libros.length; i++){ %>
+                            <tr>
+                                <td><%= i + 1 %> </td>
+                                <td><%= libros[i].editorial %></td>
+                                <td><%= libros[i].titulo %></td>
+                                <td><%= libros[i].autor %></td>
+                                <td><%= libros[i].pais %></td>
+                                <td><%= libros[i].precio %></td>
+                                <td><%= libros[i].descripción %></td>
+                                <td><%= libros[i].isbn %></td>
+                                <td><%= libros[i].cantidad %></td>
+                                <td>                                
+                                    <a href="/libros/delete/<%= libros[i]._id %>" class="btn btn-danger">Eliminar</a>
+                                    <a href="/libros/editar/<%= libros[i]._id %>" class="btn btn-info">Editar</a>
+                                </td>
+
+                            </tr>
+                        <% } %>
+                    </body>
+                </table>
+            </div>
+       <!-- </div>-->
+    </div>
+
+
+<%- include ('partes/footer'); -%>
+

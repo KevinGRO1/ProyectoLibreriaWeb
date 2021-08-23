@@ -3,8 +3,33 @@
 
 <div class="container" style="padding-top: 20px;">
 
-    <div class="col" style="padding-inline: 0.1px;">
+    <div class="row-lg-9">
+        <div class="card">
+            <div class="card-body">
+                <div class="container color forma">
+                    <form action="/editorial/insert/" method="POST">                            
+                            <div class="form-row">
+                                <div class="col">
+                                    <label>Nombre</label>
+                                    <input type="text" name="nombre" class="form-control" placeholder="Ingrese Nombre">
+                                <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                                </div>
 
+                                <div class="col">
+                                    <label>Dirección</label>
+                                    <input type="text" name="direccion" class="form-control" placeholder="Ingrese Dirección">
+                                <!-- <small class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                                </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="margin-inline: 480px; margin-top: 20px;">Agregar</button>
+                        </form>                                              
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
         <div class="row-lg-9">
             <div class="card">
                 <div class="card-body">
@@ -25,11 +50,11 @@
                 </div>
             </div>
         </div>
-
-        <div class="row-lg-9">
-            <table class="table table-bordered table-hover">
+    -->
+        <div id="div1">                
+            <table border="1" class="table table-bordered table-hover row-lg-12" style="width: 1100px;">
                 <thead>
-                    <tr>
+                    <tr class="encabezado">
                         <th>N°</th>
                         <th>Nombre</th>
                         <th>Direccion</th>                  
@@ -51,8 +76,7 @@
                     <% } %>
                 </body>
             </table>
-        </div>
-    </div>
+        </div>   
 </div>
 
 

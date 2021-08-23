@@ -1,0 +1,77 @@
+<%- include ('partes/header'); -%>
+
+<div class="container" style="padding-top: 20px;">
+
+   <!-- <div class="col" style="padding-inline: 0.1px;">-->
+     <div class="container color forma" style="padding-top: 10px; padding-bottom: 10px;">
+      <h2>Catálogo</h2>
+     </div>    
+            <div class="container color forma">
+            <form>
+                <div class="row">
+                  <div class="col">
+                    <label>Título</label>
+                    <input type="text" name="nombre" class="form-control" placeholder="Ingrese Nombre">
+                  </div>
+                  <div class="col">
+                    <label>Autor</label>
+                    <input type="text" name="autor" class="form-control" placeholder="Ingrese Autor">
+                  </div>
+                  <div class="col">
+                    <label>Editorial</label>
+                    <input type="text" name="editorial" class="form-control" placeholder="Ingrese Editorial">
+                  </div>
+                </div>
+              </form>
+              <form style="margin-top: 20px; ">
+                  <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary" style="margin-inline: 480px;">Buscar</button>
+                    </div>
+                  </div>
+              </form>
+        </div>
+        
+
+        <div id="div1">                
+            <table border="1" class="table table-bordered table-hover row-lg-12" style="width: 1100px;">
+                <thead>
+                    <tr class="encabezado">
+                        <th>N°</th>
+                        <th>Editorial</th>
+                        <th>Titulo</th>
+                        <th>Autor</th>
+                        <th>Pais</th>
+                        <th>Precio</th>
+                        <th>Descripción</th>
+                        <th>ISBN</th>                            
+                        <th>Stock</th>
+                        <th class="center" style="width: 200px;">Operación</th>
+                    </tr>
+                </thead>
+                <body>
+                    <% for(var i =0; i< libros.length; i++){ %>
+                        <tr>
+                            <td><%= i + 1 %> </td>
+                            <td><%= libros[i].editorial %></td>
+                            <td><%= libros[i].titulo %></td>
+                            <td><%= libros[i].autor %></td>
+                            <td><%= libros[i].pais %></td>
+                            <td><%= libros[i].precio %></td>
+                            <td><%= libros[i].descripción %></td>
+                            <td><%= libros[i].isbn %></td>
+                            <td><%= libros[i].cantidad %></td>
+                            <td>                                
+                                <a href="/compra/<%= libros[i]._id %>" class="btn btn-info">Comprar</a>
+                                <!-- <a href="/libros/editar/<%= libros[i]._id %>" class="btn btn-info"></a>-->
+                            </td>
+
+                        </tr>
+                    <% } %>
+                </body>
+            </table>
+        </div>
+   <!-- </div>-->
+</div>
+
+<%- include ('partes/footer'); -%>

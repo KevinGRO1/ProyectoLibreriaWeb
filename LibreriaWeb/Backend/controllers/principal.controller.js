@@ -2,7 +2,7 @@
 const principalController = {};
 
 principalController.getPrincipal = async(req, res) =>{
-    res.render('principal');
+    res.render('VistaEmpleado/principal');
 };
 
 

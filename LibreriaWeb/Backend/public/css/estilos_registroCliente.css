@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+  
+  }
+  
+  body{
+    display: flex;
+  }
+  
+  .contenedorPrincipal {
+    border-style: groove;
+    margin-top: 2%;
+    width: 30%;
+    padding: 25px;
+     
+  }
+  
+  #btn_Ingresar {
+    width: 100%;
+  }
+  #btn_Registro {
+    width: 100%;
+  }
+  
+  .Contenedor_Footer{
+    width: 100%;
+    background-color: rgb(157, 209, 157);
+    padding: 0px;
+  }
+  
+  

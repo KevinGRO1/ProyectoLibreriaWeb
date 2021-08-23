@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreria Web</title>
+    <%- include ('partes/head') -%>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./controllers/registro.cliente.controller.js" defer></script>
+</head>
+<body>
+    <%- include ('partes/headerCliente') -%>
+    
+    <div class="container contenedorPrincipal">
+        <div class="row">
+            <div class="col-lg-12 contenedorPanelLogin">
+                <div class="panel__Login__Registro">
+                    <ul class="nav nav-tabs" id="navegacion__PanelLogin" role="tablist">
+                        <li class="nav-item btn_PanelLogin">
+                            <a class="nav-link active" id="btn_Ingreso" data-toggle="tab" href="#login" role="tab" aria-controls="nav-login" >Ingreso</a>
+                        </li>
+                        <li class="nav-item btn_PanelLogin">
+                            <a class="nav-link" id="btn_Registro" data-toggle="tab" href="#registro" role="tab" aria-controls="nav-registro">Registrarse</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                            <div class="tab-pane active" id="login" role="tabpanel" aria-labelledby="nav-login-tab">
+                              <form class="formulario_login" id="formulario_login" action="/Registro/clientes/login/" method="POST">
+                                <div class="form-group">
+                                  <label for="usuario_email">Correo</label>
+                                  <input type="email" class="form-control" id="usuario_email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="usuario_contraseña">Contraseña</label>
+                                  <input type="password" class="form-control" id="usuario_contraseña" name="contraseña" required>
+                                </div>
+                                
+                                <% if(error_msg_login.length >0) { %>
+                                  <div class="alert alert-danger" ><%= error_msg_login%></div>
+                                <% } %>
+                                
+                                <button class="btn btn-primary" id="btn_Ingresar" type="submit">Ingresar</button>
+                                
+                              </form>                                
+                            </div>
+
+                            <div class="tab-pane" id="registro" role="tabpanel" aria-labelledby="nav-registro-tab">
+                              <form class="formulario_Registro" id="formulario_Registro" action="/Registro/clientes/insert/" method="POST" >
+                                <div class="form-group">
+                                  <label for="nombre">Nombre</label>
+                                  <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="apellido">Apellido</label>
+                                  <input type="text" class="form-control" id="apellido" name="apellido" required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="DNI">DNI</label>
+                                  <input type="number" class="form-control" id="DNI" minlength="8" name="DNI" required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="email">Email</label>
+                                  <input type="email" class="form-control" id="correo" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="contraseña">Contraseña</label>
+                                  <input type="password" class="form-control" id="contraseña" name="contraseña" required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="telefono">Celular</label>
+                                  <input type="number" class="form-control" id="telefono" minlength="9" name="telefono" required>
+                                  <div class="invalid-feedback">
+                                    El numero debe tener 9 digitos
+                                  </div>
+                                </div>
+                               
+                                
+                                <button class="btn btn-primary" id="btn_Registro" type="submit" onclick="window.location.href ='http://localhost:4000/Registro';" >Registrarse</button>
+                              </form>  
+                              
+                            </div>
+                        
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+
+    </div>
+    <!-- <%- include ('partes/footerCliente') -%>   -->
+   
+</body>
+</html>

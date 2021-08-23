@@ -5,7 +5,7 @@ const empleadoController = {};
 //Función para listar todos los empleados
 empleadoController.getEmpleados = async(req, res)=>{
     const empleados = await Empleados.find();
-    res.render('empleados',{
+    res.render('VistaEmpleado/empleados',{
         empleados
     });
         
@@ -13,32 +13,86 @@ empleadoController.getEmpleados = async(req, res)=>{
 
 //Función para registra un nuevo empleado
 empleadoController.createEmpleados = async(req, res) =>{
-    const empleado = new Empleados(req.body);
-    await empleado.save();
+    const sesion = await Empleados.startSession();
+    sesion.startTransaction();
+    try{
+        const empleado = new Empleados(req.body);
+        await empleado.save();        
+        await sesion.commitTransaction();
+        sesion.endSession()
+        console.log("Transaccion comiteada con exito")
+    }catch(error){
+        res.redirect('/VistaEmpleado/404');
+        await sesion.abortTransaction();
+        sesion.endSession();
+        console.log("Transaccion abortada")        
+        throw error;
+    }
     res.redirect('/empleados');
 };
 
 empleadoController.edicionEmpleado = async (req, res) =>{
-    const { id }=req.params;
-    const empleados= await Empleados.findById(id);
-    res.render('editarEmpleado',{
+    const sesion = await Empleados.startSession();
+    sesion.startTransaction();
+    try{
+        const { id }=req.params;
+        const empleados= await Empleados.findById(id);
+        res.render('VistaEmpleado/editarEmpleado',{
         empleados
     });
+        await sesion.commitTransaction();
+        sesion.endSession();
+        console.log("Transaccion comiteada con exito")
+    }catch(error){
+        await sesion.abortTransaction();
+        sesion.endSession();
+        console.log("Transaccion abortada")
+        throw error;
+    }
+    
 };
 
 //Función para editar un empleado por el ID
 empleadoController.editEmpleado = async(req, res) =>{
-    const { id } = req.params; //Soocitio el id de params
-    await Empleados.updateOne({_id: id}, req.body);
-    res.redirect('/empleados');
+    const sesion = await Empleados.startSession();
+    sesion.startTransaction();
+    try{
+        const { id } = req.params; //Soocitio el id de params
+        await Empleados.updateOne({_id: id}, req.body);
+        res.redirect('/empleados');
+        await sesion.commitTransaction();
+        sesion.endSession();
+        console.log("Edicion comiteada con exito")
+    }catch(error){
+        await sesion.abortTransaction();
+        sesion.endSession();
+        console.log("Transaccion abortada")
+        res.redirect('/empleados');
+        throw error;
+    }
+    
 
 };
 
 //Funcionn para eliminar un empleado
 empleadoController.deleteEmpleados= async (req, res) =>{
-    const { id }=req.params;
-    await Empleados.remove({_id:id});
-    res.redirect('/empleados');
+    const sesion = await Empleados.startSession();
+    sesion.startTransaction();
+    try{
+        const { id }=req.params;
+        await Empleados.remove({_id:id});
+        res.redirect('/empleados');
+        await sesion.commitTransaction();
+        sesion.endSession();
+        console.log("Delete comiteada con exito")
+    }catch(error){
+        await sesion.abortTransaction();
+        sesion.endSession();
+        console.log("Transaccion abortada")
+        res.redirect('/empleados');
+        throw error;
+    }
+    
 
 };
 

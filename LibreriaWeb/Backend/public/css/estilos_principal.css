@@ -1,0 +1,245 @@
+*{
+    margin: 0px;
+    padding: 0px;
+ 
+}
+
+body{
+    /*Colocar Flex para que los elementos esten acontinuacion de otro con flex-wrap*/
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* superior */
+
+header{
+    width: 100%;
+        
+}
+
+#BarraSuperior{
+    background-color: rgb(98, 109, 144);
+    font-size: px;
+    height: 45px;
+    
+}
+
+#BarraSuperior ul li{
+    /* Colocalomos inline-block para que cada elemenot de tipo li se muestre uno a continuacion de otro */
+    display: inline-block;
+    padding-right:20px;
+}
+
+/*Barra de Busqueda Superior*/  
+
+#BarraSuperior__Menu{
+    float: left;
+    padding-top: 10px;
+    padding-left: 90px;
+    
+}
+
+
+#BarraSuperior__Menu li a{
+    color: rgb(15, 14, 14);
+    text-decoration: none;
+    padding: 9px;
+}
+
+#BarraSuperior__Menu li a:hover{
+    color: rgb(125, 15, 15);
+}
+
+/* Seccion Cuenta Logueada */
+
+#BarraSuperior_Cuenta_Logueada{
+    float: right;
+    padding-top: 10px;
+    padding-right: 90px;
+}
+
+#BarraSuperior_Cuenta_Logueada li a{
+    color: rgb(22, 20, 20);
+    text-decoration: none;
+    padding: 18px;
+}
+#BarraSuperior_Cuenta_Logueada li a:hover{
+    color: rgb(125, 15, 15);
+}
+
+/*Se hace que los submenus esten ocultos*/
+
+#BarraSuperior_Cuenta_Logueada ul ul{
+    display:none;
+    position:absolute;
+    top:45px;
+    right: 0px;
+    /* left: 5px;
+    top: 41px; */
+    text-align: center;
+    border: none;
+    background-color: rgb(98, 126, 144);
+    padding:2px;
+}
+
+/* enlaces de los items del menu desplegable */
+
+#BarraSuperior_Cuenta_Logueada ul  ul  a {
+    line-height:150%;
+    padding:10px 15px;
+    color: rgb(22, 20, 20);
+    }
+   
+/* items del menu desplegable al pasar el ratón */
+    
+#BarraSuperior_Cuenta_Logueada ul li:hover > ul  {
+    display: inline-block;
+    background-color: none;
+   }
+
+/* Seccion Cuenta General */
+#BarraSuperios__Cuenta{
+    float: right;
+    padding-top: 10px;
+    padding-right: 90px;
+}
+#BarraSuperios__Cuenta li a{
+    color: rgb(22, 20, 20);
+    text-decoration: none;
+    padding: 18px;
+}
+
+#BarraSuperios__Cuenta li a:hover{
+    color: rgb(125, 15, 15);
+}
+/*Barra del Logo*/  
+
+#BarraLogo{    
+    background-color: rgb(255, 255, 255) ;
+    text-align: center;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    clear: both;
+}
+
+/*Barra de menu inferior */  
+
+#BarraMenu{
+   text-align: center;   
+   font-size: 20px;
+   margin-right: 20%;
+   margin-left: 20%;
+   clear: both;
+}
+#BarraMenu ul {
+    border: 1.5px dotted #555;
+    border-left: 0px;
+    border-right: 0px;
+}
+#BarraMenu ul li{
+    display: inline-block;
+    position: relative;
+    border-right: 1px solid #bbb;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;       
+}
+#BarraMenu ul li:nth-child(6){
+    border-right: 0;
+}
+
+#BarraMenu li a{
+    padding:25px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    
+}
+
+#BarraMenu ul li:hover{
+    transition: 0.2s;
+    background-color: rgb(236, 201, 201);
+    
+}
+
+
+#BarraMenu ul ul{
+    /*Se hace que los submenus esten ocultos*/
+    display:none;
+    position:absolute; 
+    left: 0px;
+    top: 41px;
+    text-align: center;
+    border: none;
+    background:rgb(229, 188, 188);
+    padding:2px;
+}
+
+/* enlaces de los items del menu desplegable */
+
+#BarraMenu ul  ul  a {
+    line-height:150%;
+    padding:10px 15px;
+    color: red;
+    }
+   
+   /* items del menu desplegable al pasar el ratón */
+    
+#BarraMenu ul li:hover > ul  {
+    display: inline-block;
+    background-color: none;
+   }
+
+/*Cuerpo*/
+
+#Principal{
+    width: 100%;
+    background-color: yellow;
+  
+    
+}
+
+#Principal2{
+    width: 100%;
+    
+    background-color: red;
+}
+#Principal3{
+    width: 100%;
+    
+    background-color: rgb(226, 49, 108);
+}
+
+/* ESTILO de los LIBROS */
+#bloque_Libros{  /*padre*/
+    
+    display: flex;
+    align-items: center;
+    width: 100%;
+	
+}
+.titulo_general{
+    width: 100%;
+    text-align: center;
+}
+.libro{  /*hijos*/
+    display: inline-block;
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.titulo {
+    font-size: 20px;
+    font-weight: bold;    
+}
+
+.autor {
+    font-size: 15px;
+    color: rgb(121, 113, 113);
+    font-weight: bold;    
+}
+
+.precio {
+    font-size: 20px;
+    color: rgb(75, 162, 32);
+    font-weight: bold;    
+}

@@ -47,6 +47,40 @@ a:hover{
   margin: 0 auto; 
 }
 
+/*
+.container {
+  
+  width: 200rem;
+}
+*/
+
+#div1 {
+  overflow:scroll;
+  height:300px;
+  width:1080px;
+}
+#div1 table {
+ width:1500px;
+ background-color:white;
+}
+
+.encabezado{
+  background-color:yellowgreen;
+  text-decoration-color: white;
+  text-align: center;
+}
+
+.color{
+  background-color:lightgray;
+}
+
+.forma{
+  margin-bottom: 20px; 
+  padding-bottom: 20px; 
+  padding-top: 20px; 
+  border-radius: 0.5cm; 
+  border-color: black;
+}
 
  /* 
 * {

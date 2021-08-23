@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
-const libroSchema = new Schema ({
+const catalogoSchema = new Schema ({
     editorial: {
         type: String,
         required: [true, 'La editorial es necesaria']
@@ -9,7 +9,6 @@ const libroSchema = new Schema ({
     titulo: {
         type: String,
         required: [true, 'El titulo es necesario']
-
     },
     autor:{
         type: String,
@@ -31,10 +30,6 @@ const libroSchema = new Schema ({
         type: String,
         required: [ true, 'El ISBN es necesario']
     },
-    cantidad:{
-        type: String,
-        required: [true, 'La cantidad es necesaria']
-    }
 });
 
-module.exports = mongoose.model('Libros', libroSchema);
+module.exports = mongoose.model('Catalogo', catalogoSchema);
